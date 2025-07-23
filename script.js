@@ -2,17 +2,25 @@
 const sendMessage = () => {
     const userInput = document.getElementById('userInput');
     if (!userInput.value.trim()) return;
-    
+
     // Добавляем сообщение пользователя
     addMessage(userInput.value, 'message-user');
-    
+
     // Отправляем запрос на сервер и получаем ответ от виртуального сомелье
-    fetch('/api/sommelier', { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({question: userInput.value}) })
-        .then(response => response.json())
-        .then(data => {
-            addMessage(data.answer, 'message-sommelier');
-        });
-    
+    fetch('https://api.telegrambotmany.ru/api/sommelier', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({question: userInput.value})
+    })
+    .then(response => response.json())
+    .then(data => {
+        addMessage(data.answer, 'message-sommelier');
+    })
+    .catch(err => {
+        addMessage('Ошибка при подключении к серверу.', 'message-sommelier');
+        console.error(err);
+    });
+
     userInput.value = '';
 };
 
