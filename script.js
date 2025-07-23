@@ -7,7 +7,7 @@ const sendMessage = () => {
     addMessage(userInput.value, 'message-user');
 
     // Отправляем запрос на сервер и получаем ответ от виртуального сомелье
-    fetch('https://api.telegrambotmany.ru/api/sommelier', {
+    fetch('https://api.telegrambotmany.ru/ask', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({question: userInput.value})
