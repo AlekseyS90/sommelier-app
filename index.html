@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Виртуальный Сомелье</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #FDFDFF;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        
+        .chat-container {
+            width: 360px;
+            max-width: 100%;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0,0,0,.1);
+            background-color: white;
+        }
+        
+        header {
+            text-align: center;
+            color: white;
+            background-color: #4CAF50;
+            padding: 1em 0;
+        }
+        
+        .messages {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            height: calc(100vh - 160px); /* Оставляем место для заголовка и ввода */
+            overflow-y: auto;
+        }
+        
+        li {
+            padding: 10px;
+            margin-bottom: 10px;
+            word-wrap: break-word;
+        }
+        
+        .message-user {
+            background-color: #ECECEC;
+            float: left;
+            clear: both;
+            width: fit-content;
+            max-width: 70%;
+            border-radius: 10px;
+        }
+        
+        .message-sommelier {
+            background-color: #B2DFDB;
+            float: right;
+            clear: both;
+            width: fit-content;
+            max-width: 70%;
+            border-radius: 10px;
+        }
+        
+        footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #F0F0F0;
+            padding: 10px;
+            box-shadow: 0 -2px 10px rgba(0,0,0,.1);
+        }
+        
+        input[type=text] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+<div class="chat-container">
+    <header><h1>Виртуальный Сомелье</h1></header>
+    <ul id="messages" class="messages"></ul>
+    <footer>
+        <input type="text" id="userInput" placeholder="Задай вопрос о вине..." />
+        <button onclick="sendMessage()">Отправить</button>
+    </footer>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
